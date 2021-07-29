@@ -41,7 +41,6 @@ public class End_To_End_Tests {
         login_class.Click_Submit_Button();
         login_class.Verify_Successful_Login();
 
-        System.out.println("Ay kona phela cha iyashawa i code ka Ward 77");
     }
     @AfterSuite
     public void Quit()
