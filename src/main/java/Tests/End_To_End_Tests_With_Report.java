@@ -1,22 +1,32 @@
 package Tests;
- import Pages.Login_Class;
- import Pages.Register_Class;
- import Setup.Setup_Class;
- import org.openqa.selenium.WebDriver;
- import org.openqa.selenium.support.PageFactory;
- import org.testng.annotations.AfterSuite;
- import org.testng.annotations.Test;
 
-public class End_To_End_Tests {
+import Helpers.Report_Class;
+import Pages.Login_Class;
+import Pages.Register_Class;
+import Setup.Setup_Class;
+import com.aventstack.extentreports.Status;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.Test;
+
+//Extend the report class so you can log the steps on the report
+//extends is case sensitive
+//extends the Report Class ...class names must match
+public class End_To_End_Tests_With_Report extends Report_Class{
 
     private WebDriver driver = Setup_Class.startBrowserOfChoice("https://demo.guru99.com/test/newtours/", "chrome");
     Register_Class register_class = PageFactory.initElements(driver, Register_Class.class);
     Login_Class login_class = PageFactory.initElements(driver, Login_Class.class);
 
-    @Test
+    @Test (priority = 1)
     public void Register_User_Test() {
+        test = extent.createTest("Register Class", "Register New User");
+        test.log(Status.PASS, "Click Register Link");
         register_class.Click_Register_link();
+        test.log(Status.PASS,"Type In The First Name");
         register_class.Enter_Firstname("Mandla");
+        test.log(Status.PASS,"Type In Last Name");
         register_class.Enter_Lastname("Mzize");
         register_class.Enter_Phone("0761231234");
         register_class.Enter_email("test@test.com");
@@ -31,8 +41,8 @@ public class End_To_End_Tests {
         register_class.Click_Submit_Button();
         register_class.Verify_Successful_Registration();
     }
-
-    @Test(priority = 1)
+//Priority first then Alphabetically
+    @Test(priority = 2)
     public void Login_Test() {
         login_class.Click_SignOn_Link();
         login_class.Enter_Username("Test");

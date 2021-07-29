@@ -19,6 +19,9 @@ public class Login_Class {
 
     //Locating all the elements we need on the login page
 
+    @FindBy(xpath = "//a[@href='login.php'][contains(.,'SIGN-ON')]")
+    WebElement Sign_In_Link;
+
     @FindBy(xpath = "//a[@href='login.php'][contains(.,'sign-in')]")
     WebElement SignOn_Link;
 
@@ -45,6 +48,17 @@ public class Login_Class {
 
         SignOn_Link.click();
     }
+
+    //Clicking the Sign In Link
+    public void Click_Sign_In_Link()
+    {
+
+        WebDriverWait sign=new WebDriverWait(driver,30);
+        sign.until(ExpectedConditions.visibilityOf(Sign_In_Link));
+
+        Sign_In_Link.click();
+    }
+
 
     //Creating Username method
     public void  Enter_Username(String _username)
