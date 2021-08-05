@@ -9,6 +9,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Report_Class {
 
     private ExtentHtmlReporter htmlReporter;
@@ -18,7 +22,7 @@ public class Report_Class {
     @BeforeSuite
     public void reportSetup()
     {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/Guru 99 Report/Guru_99_Report.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/Guru 99 Report/Guru_99_Report_.html");
         htmlReporter.config().setDocumentTitle("Execution Report");
         htmlReporter.config().setReportName("End To End Report");
         htmlReporter.config().setTheme(Theme.DARK);
