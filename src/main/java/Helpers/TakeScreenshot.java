@@ -6,16 +6,21 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TakeScreenshot {
 
     public void takeSnapShot(WebDriver driver, String screenshotName) {
+
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         //Copy the file to a location and use try catch block to handle exception
         try {
-            FileUtils.copyFile(screenshot, new File(".//ScreenShots/" + screenshotName + ".png"));
+            FileUtils.copyFile(screenshot, new File(".//ScreenShots/" + screenshotName+ ".png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
+
 }

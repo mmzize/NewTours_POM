@@ -66,7 +66,7 @@ public class Login_Class {
         WebDriverWait username=new WebDriverWait(driver,30);
         username.until(ExpectedConditions.visibilityOf(Username));
 
-        Username.sendKeys(_username);
+        Username.sendKeys(_username );
     }
 
     //Creating a Password method

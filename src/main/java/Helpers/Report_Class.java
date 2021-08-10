@@ -22,7 +22,7 @@ public class Report_Class {
     @BeforeSuite
     public void reportSetup()
     {
-        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/Guru 99 Report/Guru_99_Report_.html");
+        htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/Guru 99 Report/Guru_99_Report.html");
         htmlReporter.config().setDocumentTitle("Execution Report");
         htmlReporter.config().setReportName("End To End Report");
         htmlReporter.config().setTheme(Theme.DARK);
@@ -56,5 +56,20 @@ public class Report_Class {
     public void reportTeardown()
     {
         extent.flush();
+    }
+    public String get_Current_System_Time()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy ");
+
+        //get current date time with Date()
+        Date date = new Date();
+
+        // Now format the date
+        String date1= dateFormat.format(date);
+
+        // Print the Date
+        System.out.println(date1);
+
+        return date1;
     }
 }

@@ -144,5 +144,7 @@ public class Register_Class {
     public void Verify_Successful_Registration()
     {
         Assert.assertTrue(Welcome_note.isDisplayed());
+
+       // Assert.assertEquals("Note your name is mandla",Firstname.getText());
     }
 }

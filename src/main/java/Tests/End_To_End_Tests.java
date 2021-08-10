@@ -110,6 +110,27 @@ public class End_To_End_Tests extends Report_Class{
 
 
     }
+    @Test(priority = 3)
+    public void Login_Test_Two() throws Exception {
+        test = extent.createTest("Login Class Tests", "Login User");
+        test.log(Status.PASS, "Click Sign In Link");
+        login_class.Click_SignOn_Link();
+        test.log(Status.PASS,"Enter Username");
+        login_class.Enter_Username(Username);
+        test.log(Status.PASS,"Enter Password");
+        login_class.Enter_Password(Password);
+
+        _screenShot.takeSnapShot(driver,"Login_Tests_Screenshot");
+
+        test.log(Status.PASS,"Click Submit Button");
+        login_class.Click_Submit_Button();
+        test.log(Status.PASS,"Verify Successful Login");
+        login_class.Verify_Successful_Login();
+
+        _screenShot.takeSnapShot(driver,"Verify Login Screenshot");
+
+
+    }
 
     @AfterSuite
     public void Quit() {
